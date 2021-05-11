@@ -9,8 +9,15 @@
 
   <script type="module">
     const rootElement = document.getElementById('root')
-    const elProps= {id: 'containerId', className: 'container', children: 'Hello World React'};
-    const element = React.createElement('div', elProps);
-    ReactDOM.render(element, rootElement);
+    const spanFirstProps = {id: 'span-1', children: 'Hello'};
+    const spanSecondProps = {id: 'span-2', children: 'World Nested'};
+    const spanFirst = React.createElement('span', spanFirstProps);
+    const spanSecond = React.createElement('span', spanSecondProps);
+    const nestedProps = {id: 'nestedId', className: 'container', children: [
+      spanFirst,
+      spanSecond,
+    ]};
+    const nestedEl = React.createElement('div', nestedProps);
+    ReactDOM.render(nestedEl, rootElement);
   </script>
 </body>
